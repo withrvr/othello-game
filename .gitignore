@@ -37,6 +37,7 @@ yarn-error.log*
 .vscode
 
 
-# foo bar files
-foo.*
+# foo bar testing files
+foo*.*
+testing*.*
 
