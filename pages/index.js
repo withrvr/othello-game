@@ -5,6 +5,7 @@ import Square from '../components/Square';
 export default class Testing extends Component {
 	constructor(props) {
         super(props);
+
         this.state = {
 			turn: "white",
 			board: [
@@ -47,7 +48,7 @@ export default class Testing extends Component {
 				
 				<div className="container ">
 
-					<div className="my-1 text-xl text-center ">
+					<div className="my-3 text-xl text-center ">
 						{this.state.turn.toUpperCase()} to play
 					</div>
 					
@@ -58,7 +59,9 @@ export default class Testing extends Component {
 							return(
 								rowval.map((colval, colindex) => {
 									return(
-										<Square 
+										<Square
+											key={colindex}
+
 											squareOnClick={() => this.squareOnClick(rowindex, colindex)}
 
 											colval={colval}
@@ -71,6 +74,24 @@ export default class Testing extends Component {
 							)
 						})}
 					</div>
+
+					<button className="bg-blue-600 text-white hover:bg-blue-700 px-2 py-3 rounded-lg border-4 border-white active:border-blue-300     block mx-auto my-3" onClick={() => {
+						this.setState({
+							turn: "white",
+							board: [
+								["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "white", "black", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "black", "white", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank", ],
+								["blank", "blank", "blank", "blank", "blank", "blank", "blank", "blank", ],
+							],
+						});
+					}}>
+						Restart Game
+					</button>
 				</div>
 			</>
 		);

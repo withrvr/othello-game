@@ -1,7 +1,10 @@
 import { Component } from 'react'
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class Square extends Component {
+	constructor(props) {
+        super(props);
+	}
 
 	render() {
 
@@ -22,7 +25,7 @@ export default class Square extends Component {
 
 		return (
 			<div
-				key={this.props.colindex} className={"grid cursor-pointer border-green-600   w-[2rem] h-[2rem] border-[1px]    md:w-[4rem] md:h-[4rem] md:border-2 "}
+				className={"grid cursor-pointer border-green-600   w-[2rem] h-[2rem] border-[1px]    md:w-[4rem] md:h-[4rem] md:border-2 "}
 				onClick={this.props.squareOnClick}
 				title={printval}
 			>
@@ -35,10 +38,10 @@ export default class Square extends Component {
 }
 
 Square.propTypes  = {
-	squareOnClick: PropTypes.fuc,
+	squareOnClick: PropTypes.func,
 
 	colval: PropTypes.string,
 	
 	rowindex: PropTypes.number,
 	colindex: PropTypes.number,
-}
+};
