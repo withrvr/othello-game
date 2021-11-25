@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import Head from "next/head";
+import Square from '../components/Square';
 
 export default class Testing extends Component {
 	constructor(props) {
@@ -18,6 +19,24 @@ export default class Testing extends Component {
 			],
 		}
     }
+
+	squareOnClick = (rowindex, colindex) => {
+		if( this.state.board[rowindex][colindex] === "blank") {
+			
+			let _board = [...this.state.board];
+			let _turn = this.state.turn;
+
+			// filling with opposite color
+			_board[rowindex][colindex] = _turn;
+
+			// changing coin color ( turn )
+			this.setState({
+				turn: ( _turn === "black" ? "white" : "black" ), // opposite_color
+				board: _board,
+			});
+		}
+
+	}
 
 	render() {
 		return (
@@ -38,44 +57,16 @@ export default class Testing extends Component {
 						{this.state.board.map((rowval, rowindex) => {
 							return(
 								rowval.map((colval, colindex) => {
-									let bg_color = "";
-									let printval = `${colval} - [${rowindex}][${colindex}]`;
-				
-									if(colval === "black") {
-										bg_color = "bg-black";
-									} else if(colval === "white") {
-										bg_color = "bg-white";
-									} else if(colval == "blank") {
-										bg_color = "bg-transparent"
-									} else {
-										bg_color = "bg-red-500"
-									}
-				
 									return(
-										<div
-											key={colindex} className={"grid cursor-pointer border-green-600   w-[2rem] h-[2rem] border-[1px]    md:w-[4rem] md:h-[4rem] md:border-2 "}
-											onClick={() => {
-												if( this.state.board[rowindex][colindex] === "blank") {
-													
-													let _board = [...this.state.board];
-													let _turn = this.state.turn;
+										<Square 
+											squareOnClick={() => this.squareOnClick(rowindex, colindex)}
 
-													// filling with opposite color
-													_board[rowindex][colindex] = _turn;
-
-													// changing coin color ( turn )
-													this.setState({
-														turn: ( _turn === "black" ? "white" : "black" ), // opposite_color
-														board: _board,
-													});
-												}
-
-											}}
-											title={printval}
-										>
-											<div className={"rounded-full w-[90%] h-[90%] m-auto  " + bg_color}>{/* circle */}</div>
-										</div>
-									)
+											colval={colval}
+											
+											rowindex={rowindex}
+											colindex={colindex}
+										/>
+									);
 								})
 							)
 						})}
