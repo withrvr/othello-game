@@ -7,8 +7,9 @@ A Lifetime To Master
 Coin / Board / Mind Game
 ```
 
-<!-- # Links
+# Links
 
--   [Final Result](https://pokedex-withrvr.vercel.app/) -->
+-   [Othello Website](https://www.eothello.com/)
+-   [Final Result](https://othello-game-withrvr.vercel.app/)
 
 ### Currently Under Development
