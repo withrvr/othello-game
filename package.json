@@ -1,7 +1,9 @@
 {
-	"name": "othello-game",
+	"name": "othello-game-withrvr",
 	"version": "0.1.0",
 	"private": true,
+	"discription": "A Minute To Learn, A Lifetime To Master",
+	"email": "contactwithrvr@gmail.com",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -10,14 +12,19 @@
 	},
 	"dependencies": {
 		"next": "^12.0.4",
-		"prop-types": "^15.7.2",
+		"nextjs-progressbar": "^0.0.13",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2"
 	},
 	"devDependencies": {
-		"autoprefixer": "^10.2.6",
-		"postcss": "^8.3.5",
-		"tailwindcss": "^2.2.4"
+		"@types/node": "^17.0.6",
+		"@types/react": "^17.0.38",
+		"autoprefixer": "^10.4.1",
+		"eslint": "7.32.0",
+		"eslint-config-next": "12.0.4",
+		"postcss": "^8.4.5",
+		"tailwindcss": "^3.0.8",
+		"typescript": "^4.5.4"
 	},
 	"keywords": [
 		"coin-board-game",

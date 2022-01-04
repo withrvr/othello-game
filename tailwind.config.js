@@ -1,31 +1,21 @@
-const colors = require("tailwindcss/colors");
-
 module.exports = {
 	mode: "jit",
-	purge: [
+	content: [
 		"./pages/**/*.{js,ts,jsx,tsx}",
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
-	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {
-			colors: {
-				// teal: colors.teal,
-				// sky: colors.sky,
-				cyan: colors.cyan,
+			screens: {
+				"3xl": "1600px",
+				"4xl": "1800px",
+				"5xl": "2000px",
+				"6xl": "2200px",
 			},
 		},
 		container: {
 			center: true,
 			padding: "1rem",
-		},
-		screens: {
-			sm: "540px",
-			md: "720px",
-			lg: "960px",
-			xl: "1140px",
-			"2xl": "1320px",
-			"3xl": "1600px",
 		},
 	},
 	variants: {
